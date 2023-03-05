@@ -27,3 +27,15 @@ webapp/.env.development.local
 webapp/.env.test.local
 webapp/.env.production.local
 webapp/npm-debug.log*
+
+dating/node_modules
+dating/.pnp
+dating/.pnp.js
+dating/coverage
+dating/build
+dating/.DS_Store
+dating/.env.local
+dating/.env.development.local
+dating/.env.test.local
+dating/.env.production.local
+dating/npm-debug.log*
