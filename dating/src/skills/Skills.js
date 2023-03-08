@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React from "react";
 import {Skill} from "./Skill";
 import "./Skill.css";
 
 export function Skills(props) {
-    const skills = props.skills
+    
+    const skills = props.skills.slice()
         .sort((a, b) => b.importance - a.importance)
         .map((sk, i) => <Skill
             skill={sk} highlighted={highlighted(sk, props.search)}

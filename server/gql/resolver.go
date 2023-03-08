@@ -2,9 +2,10 @@ package gql
 
 import (
 	"context"
-	"github.com/shpota/skmz/db"
-	"github.com/shpota/skmz/gql/gen"
-	"github.com/shpota/skmz/model"
+
+	"github.com/brianlangdon/tada/db"
+	"github.com/brianlangdon/tada/gql/gen"
+	"github.com/brianlangdon/tada/model"
 )
 
 type Resolver struct {

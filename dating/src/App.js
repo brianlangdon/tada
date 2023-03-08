@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {ApolloClient, InMemoryCache, gql} from '@apollo/client';
+import {Programmers} from "./programmers/Programmers";
+import {SearchBox} from "./search/SearchBox";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+    client = new ApolloClient({
+        uri: `${process.env.REACT_APP_API_URL}/query`,
+        cache : new InMemoryCache()
+    });
+    state = {
+        programmers: [],
+        search: ""
+    };
+    updateSearch = (search) => {
+        this.setState({search: search.trim()});
+        this.requestProgrammers(search.trim())
+    };
+
+    componentDidMount() {
+        this.requestProgrammers(this.state.search);
+    }
+
+    requestProgrammers(search) {
+        this.client.query({
+            query: gql`
+                {
+                    programmers(skill: "${search}") {
+                        name,
+                        title,
+                        picture,
+                        company,
+                        skills{
+                            name,
+                            icon,
+                            importance
+                        }
+                    }
+                }
+            `
+        })
+        .then(result => this.setState({
+            programmers: result.data.programmers
+        }));
+    }
+
+    render() {
+        return <div className="container collection">
+            <SearchBox search={this.state.search} updateSearch={this.updateSearch}/>
+            <Programmers programmers={this.state.programmers}
+                         search={this.state.search} updateSearch={this.updateSearch}/>
+        </div>;
+    }
 }
-
-export default App;

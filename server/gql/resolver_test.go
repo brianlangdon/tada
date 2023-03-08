@@ -3,9 +3,10 @@ package gql
 import (
 	"context"
 	"errors"
-	"github.com/shpota/skmz/model"
-	"go.mongodb.org/mongo-driver/mongo"
 	"testing"
+
+	"github.com/brianlangdon/tada/model"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type MockDB struct {

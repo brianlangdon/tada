@@ -2,16 +2,17 @@ package main
 
 import (
 	"context"
-	"github.com/99designs/gqlgen/handler"
-	"github.com/shpota/skmz/cors"
-	"github.com/shpota/skmz/db"
-	"github.com/shpota/skmz/gql"
-	"github.com/shpota/skmz/gql/gen"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/99designs/gqlgen/handler"
+	"github.com/brianlangdon/tada/cors"
+	"github.com/brianlangdon/tada/db"
+	"github.com/brianlangdon/tada/gql"
+	"github.com/brianlangdon/tada/gql/gen"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func main() {
@@ -24,7 +25,7 @@ func main() {
 	http.Handle("/playground",
 		handler.Playground("GraphQL playground", "/query"),
 	)
-	http.Handle("/", http.FileServer(http.Dir("/webapp")))
+	http.Handle("/", http.FileServer(http.Dir("/dating")))
 	err = http.ListenAndServe(":8080", nil)
 	log.Println(err)
 }

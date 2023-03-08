@@ -2,10 +2,11 @@ package db
 
 import (
 	"context"
-	"github.com/shpota/skmz/model"
+	"log"
+
+	"github.com/brianlangdon/tada/model"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"log"
 )
 
 type DB interface {
