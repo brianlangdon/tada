@@ -9,8 +9,7 @@ import (
 	"github.com/99designs/gqlgen/handler"
 	"github.com/brianlangdon/tada/cors"
 	"github.com/brianlangdon/tada/db"
-	"github.com/brianlangdon/tada/gql"
-	"github.com/brianlangdon/tada/gql/gen"
+	"github.com/brianlangdon/tada/graph"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -31,10 +30,10 @@ func main() {
 }
 
 func gqlHandler(db db.DB) http.HandlerFunc {
-	config := gen.Config{
-		Resolvers: &gql.Resolver{DB: db},
+	config := graph.Config{
+		Resolvers: &graph.Resolver{DB: db},
 	}
-	gh := handler.GraphQL(gen.NewExecutableSchema(config))
+	gh := handler.GraphQL(graph.NewExecutableSchema(config))
 	if os.Getenv("profile") != "prod" {
 		gh = cors.Disable(gh)
 	}

@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/brianlangdon/tada/model"
+	"github.com/brianlangdon/tada/graph/model"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )

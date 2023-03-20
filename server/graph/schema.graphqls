@@ -1,0 +1,39 @@
+type Programmer {
+    id: ID!
+    name: String!
+    title: String!
+    picture: String
+    company: String!
+    skills: [Skill!]!
+}
+
+input ProgrammerInput {
+    id: ID
+    name: String!
+    title: String!
+    picture: String
+    company: String!
+    skills: [SkillInput!]!
+}
+
+type Skill {
+    id: ID!
+    name: String!
+    icon: String
+    importance: Int!
+}
+
+input SkillInput {
+    id: ID
+    name: String!
+    icon: String
+    importance: Int!
+}
+
+type Query {
+    programmers(skill: String!): [Programmer!]!
+}
+
+type Mutation {
+  upsertProgrammer(input: ProgrammerInput!): Programmer!
+}

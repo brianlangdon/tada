@@ -11,8 +11,24 @@ type Programmer struct {
 	Skills  []*Skill `json:"skills"`
 }
 
+type ProgrammerInput struct {
+	ID      *string       `json:"id"`
+	Name    string        `json:"name"`
+	Title   string        `json:"title"`
+	Picture *string       `json:"picture"`
+	Company string        `json:"company"`
+	Skills  []*SkillInput `json:"skills"`
+}
+
 type Skill struct {
 	ID         string  `json:"id"`
+	Name       string  `json:"name"`
+	Icon       *string `json:"icon"`
+	Importance int     `json:"importance"`
+}
+
+type SkillInput struct {
+	ID         *string `json:"id"`
 	Name       string  `json:"name"`
 	Icon       *string `json:"icon"`
 	Importance int     `json:"importance"`
