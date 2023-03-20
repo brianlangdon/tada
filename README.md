@@ -1,5 +1,7 @@
-SKMZ [![Build Status](https://travis-ci.com/Shpota/skmz.svg?branch=master)](https://travis-ci.com/Shpota/skmz) [![](https://img.shields.io/codecov/c/github/Shpota/skmz?color=green&logo=test%20coverage)](https://codecov.io/gh/Shpota/skmz)
+Tada based on SKMZ
 ====
+
+The Amazing Dating App - a Uni project ...
 
 A web application that allows to query programmers
 with their skills via a **GraphQL** API. The
