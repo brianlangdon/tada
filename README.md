@@ -72,7 +72,7 @@ will be available.
 
 **Start the Front End dev server**
 
-Navigate to the `/webapp` folder and execute
+Navigate to the `/dating` folder and execute
 the following commands:
 
 ```sh
